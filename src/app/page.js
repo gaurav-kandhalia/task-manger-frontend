@@ -8,14 +8,14 @@ import Head from "next/head";
 
 
 export default function Home() {
-  const {isAuthenticated,openCount} = useAuth();
+  const {isAuthenticated,openCount,isModalOpen} = useAuth();
   console.log(isAuthenticated)
   return (
    <>
    <Header/>
    
    {
-  isAuthenticated && openCount === 1 ? <MyTasks /> : <Hero />
+  isAuthenticated && openCount === 1 ? <MyTasks /> : !isModalOpen && <Hero/>
 }
 
    </>

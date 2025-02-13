@@ -5,10 +5,10 @@ import Login from "./Auth/Login";
 import { useAuth } from "../context/AuthContext";
 import TaskForm from "./Tasks/TaskForm";
 const Header = () => {
-   const {isAuthenticated,logout,downloadPdf,setOpenCount} = useAuth()
+   const {isAuthenticated,logout,downloadPdf,setOpenCount,openCount,isModalOpen,setModal} = useAuth()
    const [openTaskForm,setTaskForm] = useState(false)
 
-    const [isModalOpen,setModal] = useState(false);
+    
     const [modalType,setModalType] = useState('')
 
     const openModal=(type)=>{
@@ -99,12 +99,16 @@ const Header = () => {
             </header>
 
               {
-                isModalOpen && 
+                isModalOpen && openCount===0 &&
                 <div className="">
                  <div className="flex justify-center ">
-                    <button className="rounded-full border-2 border-gray-500 w-9 h-9 font-bold text-red-800 text-2xl absolute  " onClick={closeModal}>x</button>
+                    <button className={`rounded-full border-2 border-gray-500 w-9 h-9 font-bold text-red-800 text-2xl absolute `} onClick={closeModal}>x</button>
                  </div>
-                     {
+                     
+              </div>
+              }
+
+{
                         isModalOpen && modalType==='login' && <Login/>
                      }
                      {
@@ -114,8 +118,6 @@ const Header = () => {
                         isModalOpen && modalType==='addTask' && <TaskForm buttonName={'Add Task'}/>
                      }
                     
-              </div>
-              }
           
         </>
     )

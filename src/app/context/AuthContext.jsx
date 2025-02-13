@@ -3,7 +3,7 @@
 import {  createContext,useContext,useEffect,useState } from "react"
 import axios from "axios";
 import Cookies from "js-cookie";
-const url='http://localhost:5911/api/v1';
+const url=`https://taskmanager-wcm2.onrender.com/api/v1`;
 
 const AuthContext = createContext();
 
@@ -26,6 +26,7 @@ export const AuthProvider = ({children})=>{
     const [taskUpdatedMsg,setTaskUpdatedMsg] = useState('');
     const [isAuthenticated,setIsAuthenticated] = useState(false);
     const [openCount,setOpenCount] = useState(0);
+    const [isModalOpen,setModal] = useState(false)
 
     useEffect(()=>{
         const token = Cookies.get("accessToken");
@@ -253,7 +254,7 @@ export const AuthProvider = ({children})=>{
     
 
     return (
-        <AuthContext.Provider value={{setOpenCount,logout,openCount,formData,register,handleInputChange,authMsg,login,getTasks,myTasks,deleteTask,setTask,handleTaskInputChange,editTask,downloadPdf,url,taskUpdatedMsg,isAuthenticated}}>
+        <AuthContext.Provider value={{setModal,isModalOpen,setOpenCount,logout,openCount,formData,register,handleInputChange,authMsg,login,getTasks,myTasks,deleteTask,setTask,handleTaskInputChange,editTask,downloadPdf,url,taskUpdatedMsg,isAuthenticated}}>
             {children}
         </AuthContext.Provider>
     )

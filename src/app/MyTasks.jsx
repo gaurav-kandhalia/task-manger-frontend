@@ -31,24 +31,9 @@ const MyTasks = ()=>{
           myTasks.length !==0 &&
          myTasks.map((val,index)=>{
           return (
-          //   <div  className="border-2 border-green-700 " key={val._id}>
-          //     <div>{val.title}</div>
-          //     <div>{val.description}</div>
-          //     <div>{val.dueDate}</div>
-          //     <div>{val.status}</div>
-          //     <div>
-          //     <button className="border-2 border-gray-600 px-4" onClick={()=>openModal('edit',val._id)} >
-          //   edit
-          // </button>
-
-          // <button className="border-2 border-gray-600 px-4" onClick={()=>deleteTask(val._id)}>
-          //   delete
-          // </button>
-     
-          //     </div>
-          //   </div>
-          <article className="rounded-xl border border-gray-700 bg-gray-800 p-4 mt-4 w-[70%] mx-auto">
-  <div className="flex items-center gap-4">
+       
+          <article className="rounded-xl border border-gray-700 bg-gray-800 p-4 mt-4 w-[70%] mx-auto" key={val._id}>
+  <div className="flex items-center gap-4 " >
     
 
     <div>
@@ -75,14 +60,7 @@ const MyTasks = ()=>{
         
       </a>
 
-       {/* <button className="border-2 border-gray-600 px-4" onClick={()=>openModal('edit',val._id)} >
-            edit
-          </button>
-
-           <button className="border-2 border-gray-600 px-4" onClick={()=>deleteTask(val._id)}>
-             delete
-           </button> */}
-           {/* Base */}
+      
 
 <button
   className="inline-block rounded-md border border-indigo-600 bg-indigo-600 px-4 py-1 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden mt-2"
